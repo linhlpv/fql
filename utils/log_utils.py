@@ -63,6 +63,7 @@ def setup_wandb(
     entity=None,
     project='project',
     group=None,
+    job_type=None,
     name=None,
     mode='online',
 ):
@@ -76,6 +77,7 @@ def setup_wandb(
         entity=entity,
         tags=tags,
         group=group,
+        job_type=job_type,
         dir=wandb_output_dir,
         name=name,
         settings=wandb.Settings(

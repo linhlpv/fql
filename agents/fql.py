@@ -205,7 +205,7 @@ class FQLAgent(flax.struct.PyTreeNode):
         critic_def = Value(
             hidden_dims=config['value_hidden_dims'],
             layer_norm=config['layer_norm'],
-            num_ensembles=2,
+            num_ensembles=config['critic_ensembles'],
             encoder=encoders.get('critic'),
         )
         actor_bc_flow_def = ActorVectorField(
@@ -261,6 +261,7 @@ def get_config():
             discount=0.99,  # Discount factor.
             tau=0.005,  # Target network update rate.
             q_agg='mean',  # Aggregation method for target Q values.
+            critic_ensembles=2,  # Number of critic ensembles.
             alpha=10.0,  # BC coefficient (need to be tuned for each environment).
             flow_steps=10,  # Number of flow steps.
             normalize_q_loss=False,  # Whether to normalize the Q loss.
