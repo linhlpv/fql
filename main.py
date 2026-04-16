@@ -52,7 +52,7 @@ def main(_):
     # Set up logger.    
     exp_name = get_exp_name(FLAGS.seed)
     job_type = FLAGS.agent['agent_name'].upper()
-    exp_name = f"{job_type}_{FLAGS.exp_notes}_{FLAGS.seed}"
+    exp_name = f"{job_type}_{FLAGS.exp_notes}_{FLAGS.env_name}_{FLAGS.seed}"
     if FLAGS.project_name is not None:
         project_name = FLAGS.project_name
     else:
