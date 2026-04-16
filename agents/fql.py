@@ -41,6 +41,11 @@ class FQLAgent(flax.struct.PyTreeNode):
             'q_mean': q.mean(),
             'q_max': q.max(),
             'q_min': q.min(),
+            'q_std': q.std(axis=0).mean(),
+            "reward_mean": batch['rewards'].mean(),
+            "reward_std": batch['rewards'].std(),
+            "reward_max": batch['rewards'].max(),
+            "reward_min": batch['rewards'].min(),
         }
 
     def actor_loss(self, batch, grad_params, rng):
