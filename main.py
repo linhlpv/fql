@@ -59,7 +59,7 @@ def main(_):
         project_name = 'FINO'
     setup_wandb(project=project_name, group=FLAGS.env_name, job_type=job_type, name=exp_name)
 
-    FLAGS.save_dir = os.path.join(FLAGS.save_dir, job_type, FLAGS.env_name, f'{FLAGS.seed}')
+    FLAGS.save_dir = os.path.join(FLAGS.save_dir, f"{job_type}_{FLAGS.exp_notes}", FLAGS.env_name, f'{FLAGS.seed}')
     os.makedirs(FLAGS.save_dir, exist_ok=True)
     flag_dict = get_flag_dict()
     with open(os.path.join(FLAGS.save_dir, 'flags.json'), 'w') as f:
