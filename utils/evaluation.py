@@ -103,3 +103,4 @@ def evaluate(
         stats[k] = np.mean(v)
 
     return stats, trajs, renders
+
